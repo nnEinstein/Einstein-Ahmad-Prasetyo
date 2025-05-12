@@ -1,15 +1,70 @@
+// Hamburger menu
 const navbarNav = document.querySelector('.navbar-nav');
 const hamburger = document.querySelector('#hamburger-menu');
+// certificate python
+const pythonCta = document.querySelector('#python-btn');
+const pythonCertificate = document.querySelector('#show-python');
+// certificate javascript
+const jsCta = document.querySelector('#js-btn');
+const jsCertificate = document.querySelector('#show-javascript');
 
-document.querySelector('#hamburger-menu').onclick = (e) => {
-    navbarNav.classList.toggle('active');
-    e.preventDefault();
+// certificate linux
+
+// certificate networking
+const networkCta = document.querySelector('#networking-btn');
+const networkCertificate = document.querySelector('#show-networking');
+
+// certificate machine learning
+const mlCta = document.querySelector('#ml-btn');
+const mlCertificate = document.querySelector('#show-ml');
+
+// variabel remove certificate
+const containerRemove = document.querySelector('.ctr-container');
+
+// menambahkan kelas active hamburger
+hamburger.onclick = (e) => {
+  navbarNav.classList.toggle('active');
+  e.preventDefault();
+};
+
+// menambahkan kelas active python certificate
+pythonCta.onclick = (e) => {
+  pythonCertificate.classList.toggle('active');
+  e.preventDefault();
+};
+
+// menambahkan kelas active javascript certificate
+jsCta.onclick = (e) => {
+  jsCertificate.classList.toggle('active');
+  e.preventDefault();
+};
+
+networkCta.onclick = (e) => {
+  networkCertificate.classList.toggle('active');
+  e.preventDefault();
+};
+
+mlCta.onclick = (e) => {
+  mlCertificate.classList.toggle('active');
+  e.preventDefault();
 };
 
 // Klik di luar navbar untuk menghilangkan class 'active'
 document.addEventListener('click', function(e) {
     if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
-        navbarNav.classList.remove('active');
+      navbarNav.classList.remove('active');
+    }
+    if (!pythonCta.contains(e.target) && !containerRemove.contains(e.target)) {
+      pythonCertificate.classList.remove('active');
+    }
+    if (!jsCta.contains(e.target) && !containerRemove.contains(e.target)) {
+      jsCertificate.classList.remove('active');
+    }
+    if (!networkCta.contains(e.target) && !containerRemove.contains(e.target)) {
+      networkCertificate.classList.remove('active');
+    }
+    if (!mlCta.contains(e.target) && !containerRemove.contains(e.target)) {
+      mlCertificate.classList.remove('active');
     }
 });
 
@@ -35,24 +90,6 @@ document.addEventListener('click', function(e) {
       observer.observe(element);
     });
   });
-
-// Certificate modal show/hide
-(() => {
-  const cta = document.querySelector('.skills-content .cta');
-  const modal = document.getElementById('show-certificate');
-  const img = modal.querySelector('img');
-
-  // Open modal on .cta click
-  cta.addEventListener('click', e => {
-    e.preventDefault();
-    modal.style.display = 'block';
-  });
-
-  // Close modal when clicking outside image
-  modal.addEventListener('click', e => {
-    if (e.target !== img) modal.style.display = 'none';
-  });
-})();
 
 // Global spark effect on click
 (function() {
